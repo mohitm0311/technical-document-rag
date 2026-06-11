@@ -3,17 +3,21 @@ class PromptBuilder:
     @staticmethod
     def build_prompt(
         query: str,
-        retrieved_chunks: list[str]
+        retrieved_chunks: list
     ) -> str:
 
         context = "\n\n".join(
-            retrieved_chunks
+            chunk["text"]
+            for chunk in retrieved_chunks
         )
 
         prompt = f"""
 You are a helpful AI assistant.
 
-Answer the question using only the provided context.
+Answer the user's question using ONLY the provided context.
+
+If the answer cannot be found in the context, say:
+"I could not find the answer in the provided document."
 
 Context:
 {context}

@@ -14,20 +14,30 @@ class Retriever:
         query: str,
         k: int = 5
     ):
-        query_embedding = self.embedding_generator.generate_embeddings(
-            [query]
+        query_embedding = (
+            self.embedding_generator
+            .generate_embeddings([query])
         )
 
-        distances, indices = self.indexer.search(
-            query_embedding,
-            k
+        distances, indices = (
+            self.indexer.search(
+                query_embedding,
+                k
+            )
         )
 
-        retrieved_chunks = []
+        results = []
 
-        for idx in indices[0]:
-            retrieved_chunks.append(
-                self.chunks[idx]
+        for score, idx in zip(
+            distances[0],
+            indices[0]
+        ):
+            results.append(
+                {
+                    "chunk_id": int(idx),
+                    "score": float(score),
+                    "text": self.chunks[idx]
+                }
             )
 
-        return retrieved_chunks
+        return results

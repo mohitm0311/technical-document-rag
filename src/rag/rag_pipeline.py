@@ -9,7 +9,6 @@ class RAGPipeline:
         self,
         retriever: Retriever
     ):
-
         self.retriever = retriever
         self.llm = LLMGenerator()
 
@@ -33,4 +32,7 @@ class RAGPipeline:
             prompt
         )
 
-        return answer
+        return {
+            "answer": answer,
+            "sources": retrieved_chunks
+        }

@@ -25,7 +25,29 @@ retriever = Retriever(
 pipeline = RAGPipeline(
     retriever
 )
-answer = pipeline.ask(
+result = pipeline.ask(
     "What is k nearest neighbors?"
 )
-print(answer)
+
+print("\nAnswer:")
+print("=" * 50)
+print(result["answer"])
+
+print("\nSources:")
+print("=" * 50)
+
+for source in result["sources"]:
+
+    print(
+        f"\nChunk ID: {source['chunk_id']}"
+    )
+
+    print(
+        f"Score: {source['score']:.4f}"
+    )
+
+    print("-" * 50)
+
+    print(
+        source["text"][:300]
+    )
