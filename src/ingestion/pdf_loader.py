@@ -13,5 +13,9 @@ class PDFLoader:
         for page in document:
             page_text = page.get_text()
             all_text.append(page_text)
+        
+        total_pages = len(document)
+        print(f"Pages: {total_pages}")  
 
         return "\n".join(all_text)
+        
