@@ -191,9 +191,9 @@ Compare Random Forest and Gradient Boosting.
 
 ## Screenshots
 
-| Dashboard | Retrieval Results |
-|-----------|-------------------|
-| *Add screenshot* | *Add screenshot* |
+### Dashboard & Retrieval Results
+
+![DocMind Dashboard](assets/docmind-dashboard.png)
 
 ---
 
