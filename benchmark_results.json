@@ -1,0 +1,12 @@
+{
+  "pdf_extract_seconds": 0.7708,
+  "extracted_chars": 693243,
+  "chunking_seconds": 0.0088,
+  "num_chunks": 1007,
+  "embedding_seconds_total": 13.8415,
+  "embedding_dimension": 384,
+  "faiss_build_seconds": 0.001,
+  "faiss_index_size": 1007,
+  "avg_retrieval_seconds": 0.17784,
+  "avg_top1_similarity_score": 0.6065
+}
